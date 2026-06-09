@@ -368,7 +368,15 @@
       margin-right: auto;
     }
 
-    .contact-email {
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -381,9 +389,24 @@
       padding: 10px 20px;
       border-radius: 100px;
       transition: opacity 0.15s;
+      width: fit-content;
     }
 
-    .contact-email:hover { opacity: 0.8; }
+    a.contact-item:hover { opacity: 0.8; }
+
+    .contact-item--plain {
+      color: var(--text2);
+      background: transparent;
+      border-color: var(--border);
+      font-weight: 400;
+    }
+
+    .contact-hours {
+      font-size: 13px;
+      color: var(--text3);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
 
     /* Footer */
     footer {
@@ -396,11 +419,25 @@
       gap: 8px;
     }
 
-    footer p, footer address {
+    footer p {
       font-size: 12.5px;
       color: var(--text3);
       font-style: normal;
     }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      font-size: 12.5px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--text2); }
 
     @media (max-width: 640px) {
       nav { padding: 1rem 1.25rem; }
@@ -410,6 +447,8 @@
       .cards-section { padding-left: 1.25rem; padding-right: 1.25rem; }
       .contact { padding: 3.5rem 1.25rem; }
       footer { flex-direction: column; align-items: flex-start; padding: 1.25rem; }
+      .contact-details { align-items: stretch; }
+      .contact-item { justify-content: center; }
     }
   </style>
 </head>
@@ -507,21 +546,38 @@
 
   <section class="contact" id="contact">
     <div class="contact-inner">
-      <h2>Let's talk</h2>
-      <p>Questions, partnerships, or press inquiries — we'd love to hear from you.</p>
-      <a href="mailto:jscott@aetherrite-labs.com" class="contact-email">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="1" y="3" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1"/>
-          <path d="M1.5 3.5L7.5 8.5L13.5 3.5" stroke="currentColor" stroke-width="1"/>
-        </svg>
-        jscott@aetherrite-labs.com
-      </a>
+      <h2>Get in touch</h2>
+      <p>Questions about our apps, business inquiries, or support — reach us directly.</p>
+      <div class="contact-details">
+        <a href="mailto:jscott@aetherrite-labs.com" class="contact-item">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="3" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1"/>
+            <path d="M1.5 3.5L7.5 8.5L13.5 3.5" stroke="currentColor" stroke-width="1"/>
+          </svg>
+          jscott@aetherrite-labs.com
+        </a>
+        <a href="tel:+19512235835" class="contact-item">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4.5 1.5C4.5 1.5 3 1.5 2.5 3C2 4.5 2.5 6.5 4 8.5C5.5 10.5 7 12 8.5 12.5C10 13 12 13 13 12C14 11 13.5 9.5 13.5 9.5L11.5 8.5C11.5 8.5 11 9 10.5 9C10 9 9 8.5 7.5 7C6 5.5 5.5 4.5 5.5 4C5.5 3.5 6 3 6 3L4.5 1.5Z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+          </svg>
+          +1 (951) 223-5835
+        </a>
+        <span class="contact-item contact-item--plain">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7.5 1C4.46 1 2 3.46 2 6.5C2 10.5 7.5 14.5 7.5 14.5C7.5 14.5 13 10.5 13 6.5C13 3.46 10.54 1 7.5 1ZM7.5 8.5C6.4 8.5 5.5 7.6 5.5 6.5C5.5 5.4 6.4 4.5 7.5 4.5C8.6 4.5 9.5 5.4 9.5 6.5C9.5 7.6 8.6 8.5 7.5 8.5Z" stroke="currentColor" stroke-width="1"/>
+          </svg>
+          31945 Mirada Cir, Murrieta, CA 92563
+        </span>
+      </div>
+      <p class="contact-hours">Available Monday – Friday, 9 am – 5 pm PT</p>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2026 Aetherrite Labs LLC. All rights reserved.</p>
-    <address>31945 Mirada Cir, Murrieta, CA 92563</address>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+    </div>
   </footer>
 
 </body>
